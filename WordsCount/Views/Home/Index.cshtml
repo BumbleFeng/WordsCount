@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style type="text/css">
+    #table {
+        margin: 0 auto
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Words Count</h1>
+
+    <div style="width:750px;margin:0 auto">
+        <form method="post">
+            <div class="form-group">
+                <label for="context" class="float-left">Your Context: </label>
+                <textarea required="required" class="form-control" id="context" rows="10" cols="90" name="context" placeholder="Your context goes here"></textarea>
+                <br/>
+                <button type="submit" class="btn btn-primary float-right">Submit</button>            
+            </div>
+        </form>
+    </div>
+
+    <div class="container" style="width:780px;margin-top:50px">
+        <div class="row">
+            <div class="col-sm">
+                <p>Top English Words:</p>
+                <div>
+                    @await Component.InvokeAsync("WordList", new { language = 1, limit = 5 })
+                </div>
+                <a href="home/English">More</a>
+            </div>
+            <div class="col-sm">
+                <p>Top Chinese Characters:</p>
+                <div>
+                    @await Component.InvokeAsync("WordList", new { language = 2, limit = 5 })
+                </div>
+                <a href="home/Chinese">More</a>
+            </div>
+            <div class="col-sm">
+                <p>Top Hindi Words:</p>
+                <div>
+                    @await Component.InvokeAsync("WordList", new { language = 3, limit = 5 })
+                </div>
+                <a href="home/Hindi">More</a>
+            </div>
+        </div>
+    </div>
+</div>
+

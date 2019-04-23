@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WordsCount.Models.Word>
+
+<table class="table">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Words</th>
+            <th scope="col">Count</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <th scope="row">@p.key</th>
+            <td >@p.value</td>
+        </tr>
+    }
+    </tbody>
+</table>
